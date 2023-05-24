@@ -1,10 +1,9 @@
-import { env } from '$env/dynamic/private';
 import { MongoClient, type OptionalId } from 'mongodb';
 import type { RequestHandler } from "./$types";
 
 
-if (!env.MONGO_URI) throw new Error(`env.MONGO_URI was ${env.MONGO_URI}`);
-const client = await new MongoClient(env.MONGO_URI).connect();
+if (!import.meta.env.MONGO_URI) throw new Error(`import.meta.env.MONGO_URI was ${import.meta.env.MONGO_URI}`);
+const client = await new MongoClient(import.meta.env.MONGO_URI).connect();
 
 export const POST = (async ({ request }) => {
     try {

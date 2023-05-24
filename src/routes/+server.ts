@@ -2,8 +2,8 @@ import { MongoClient, type OptionalId } from 'mongodb';
 import type { RequestHandler } from "./$types";
 
 
-if (!import.meta.env.MONGO_URI) throw new Error(`import.meta.env.MONGO_URI was ${import.meta.env.MONGO_URI}`);
-const client = await new MongoClient(import.meta.env.MONGO_URI).connect();
+if (!import.meta.env.VITE_MONGO_URI) throw new Error(`import.meta.env.VITE_MONGO_URI was ${import.meta.env.VITE_MONGO_URI}`);
+const client = await new MongoClient(import.meta.env.VITE_MONGO_URI).connect();
 
 export const POST = (async ({ request }) => {
     try {
